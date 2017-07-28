@@ -8,6 +8,9 @@ TagManager:
   - Flipper
   - environment
   - obstacle
+  - wallTopInner
+  - wallTopOuter
+  - wallRight
   layers:
   - Default
   - TransparentFX
