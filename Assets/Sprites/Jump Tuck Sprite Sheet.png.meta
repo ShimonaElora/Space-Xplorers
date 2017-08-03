@@ -1,0 +1,512 @@
+fileFormatVersion: 2
+guid: 0eea86d99cad4b44a873e33f2a35a12b
+timeCreated: 1501756366
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Jump Tuck Sprite Sheet_0
+    21300002: Jump Tuck Sprite Sheet_1
+    21300004: Jump Tuck Sprite Sheet_2
+    21300006: Jump Tuck Sprite Sheet_3
+    21300008: Jump Tuck Sprite Sheet_4
+    21300010: Jump Tuck Sprite Sheet_5
+    21300012: Jump Tuck Sprite Sheet_6
+    21300014: Jump Tuck Sprite Sheet_7
+    21300016: Jump Tuck Sprite Sheet_8
+    21300018: Jump Tuck Sprite Sheet_9
+    21300020: Jump Tuck Sprite Sheet_10
+    21300022: Jump Tuck Sprite Sheet_11
+    21300024: Jump Tuck Sprite Sheet_12
+    21300026: Jump Tuck Sprite Sheet_13
+    21300028: Jump Tuck Sprite Sheet_14
+    21300030: Jump Tuck Sprite Sheet_15
+    21300032: Jump Tuck Sprite Sheet_16
+    21300034: Jump Tuck Sprite Sheet_17
+    21300036: Jump Tuck Sprite Sheet_18
+    21300038: Jump Tuck Sprite Sheet_19
+    21300040: Jump Tuck Sprite Sheet_20
+    21300042: Jump Tuck Sprite Sheet_21
+    21300044: Jump Tuck Sprite Sheet_22
+    21300046: Jump Tuck Sprite Sheet_23
+    21300048: Jump Tuck Sprite Sheet_24
+    21300050: Jump Tuck Sprite Sheet_25
+    21300052: Jump Tuck Sprite Sheet_26
+    21300054: Jump Tuck Sprite Sheet_27
+    21300056: Jump Tuck Sprite Sheet_28
+    21300058: Jump Tuck Sprite Sheet_29
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: 47
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 4544
+        width: 258
+        height: 778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 4542
+        width: 361
+        height: 762
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1996
+        y: 4542
+        width: 404
+        height: 706
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 2928
+        y: 4542
+        width: 363
+        height: 762
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 3863
+        y: 4542
+        width: 314
+        height: 814
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 3669
+        width: 301
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 3667
+        width: 275
+        height: 785
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 2118
+        y: 3730
+        width: 345
+        height: 722
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 3022
+        y: 3801
+        width: 333
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 3919
+        y: 3893
+        width: 292
+        height: 517
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 3039
+        width: 293
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 3070
+        width: 290
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 2105
+        y: 3071
+        width: 308
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2957
+        y: 3057
+        width: 392
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 3858
+        y: 3055
+        width: 393
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 1844
+        width: 258
+        height: 778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 1842
+        width: 361
+        height: 762
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1842
+        width: 404
+        height: 706
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 3009
+        y: 1842
+        width: 361
+        height: 762
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 3924
+        y: 1842
+        width: 313
+        height: 814
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 969
+        width: 300
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 967
+        width: 274
+        height: 785
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 2037
+        y: 1030
+        width: 345
+        height: 722
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 2944
+        y: 1101
+        width: 334
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 3890
+        y: 1193
+        width: 292
+        height: 517
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 339
+        width: 293
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 370
+        width: 287
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 2087
+        y: 371
+        width: 308
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 2951
+        y: 357
+        width: 393
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Jump Tuck Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 3848
+        y: 355
+        width: 395
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

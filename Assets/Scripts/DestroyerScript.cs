@@ -16,7 +16,6 @@ public class DestroyerScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("here");
         if (collision.gameObject.transform.parent)
         {
             Destroy(collision.gameObject.transform.parent.gameObject);

@@ -4,107 +4,172 @@ using UnityEngine;
 
 public class CatBehaviour1 : MonoBehaviour
 {
-
-    public int speed;
-    public Transform arrowPointer;
+    //For the directional ray
+    public Transform raySpawnPointer;
     public Transform hitPoint;
-    LineRenderer lineRenderer;
-    bool touchActive;
+    private LineRenderer lineRenderer;
+    private Vector2 direction;
+    private RaycastHit2D raycast;
+
+    //touch controls
+    public static bool touchActive;
+    private bool setEnded;
+    private bool alternate;
+    private bool slow;
+
+    //Time controls
     public float time;
-    bool obstacleField;
-    bool setEnded;
-    Vector2 direction;
-    Vector2 offset;
-    Vector2 endPoint;
-    bool alternate;
-    bool slow;
-    bool wallTop;
-    float v1;
+    private float powerUpTime;
 
-    Vector2 velocity;
-    RaycastHit2D raycast;
+    //Force and velocity controls
+    private float force = 20000f;
+    private float thresholdVelocity = 950f;
+    private Vector2 velocity;
 
-    Rigidbody2D rb;
+    //Power Up controls
+    private bool newPowerTouch;
+    private float touchTime;
+    private bool longPressDetected;
+    private float someValue = 0.5f;
+
+    //Reference to rigidbody cat
+    private Rigidbody2D rb;
+
+    //Animators
+    private Animator anim;
+    private int jumpHashCode = Animator.StringToHash("jumped");
+    private int rolledHashCode = Animator.StringToHash("isRolled");
+    private int jumpStartHashCode = Animator.StringToHash("jumpStart");
+    private int jumpAnimation1HashCode = Animator.StringToHash("Base Layer.Jump Animation1");
+    private bool alternateAnim = false;
+
+    //Collider
+    private CircleCollider2D collider2D;
 
     void Start()
     {
-        wallTop = true;
         alternate = true;
         rb = GetComponent<Rigidbody2D>();
         lineRenderer = GetComponentInChildren<LineRenderer>();
         lineRenderer.enabled = false;
         touchActive = true;
         time = 10f;
-        obstacleField = false;
         setEnded = false;
-        direction = hitPoint.position - transform.position;
-        raycast = Physics2D.Raycast(arrowPointer.position, direction);
-        offset = new Vector2(hitPoint.position.x, hitPoint.position.y) - raycast.point;
+        direction = hitPoint.position - raySpawnPointer.position;
+        raycast = Physics2D.Raycast(raySpawnPointer.position, direction, 5f);
         slow = false;
+        powerUpTime = 10f;
+        newPowerTouch = false;
+        longPressDetected = false;
+        anim = GetComponent<Animator>();
+        collider2D = GetComponent<CircleCollider2D>();
+        collider2D.sharedMaterial.bounciness = 1;
+        
     }
 
     void Update()
     {
-        direction = hitPoint.position - transform.position;
-        raycast = Physics2D.Raycast(arrowPointer.position, direction, 5f);
-        if (raycast.point != null && raycast.collider.tag == "environment")
-        {
-            Vector2 inDirection = Vector2.Reflect(direction, raycast.normal);
-            lineRenderer.SetPosition(0, arrowPointer.position);
-            lineRenderer.SetPosition(1, raycast.point);
-            lineRenderer.SetPosition(2, inDirection);
-        }
-        else
-        {
-            lineRenderer.SetPosition(0, arrowPointer.position);
-            lineRenderer.SetPosition(1, raycast.point);
-            lineRenderer.SetPosition(2, raycast.point);
-        }
+
+        //LineRenderer set up
+        direction = hitPoint.position - raySpawnPointer.position;
+
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && touchActive)
         {
             Touch touch = Input.GetTouch(0);
-            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-            transform.Rotate(Vector3.back, touchDeltaPosition.x * 0.5f, Space.Self);
+            Vector2 touchDeltaPosition = touch.deltaPosition;
+            raySpawnPointer.RotateAround(transform.position, Vector3.back, touchDeltaPosition.x * 0.5f);
+            hitPoint.RotateAround(transform.position, Vector3.back, touchDeltaPosition.x * 0.5f);
+            //transform.Rotate(Vector3.back, touchDeltaPosition.x * 0.5f, Space.Self);
+            direction = hitPoint.position - raySpawnPointer.position;
+            raycast = Physics2D.Raycast(raySpawnPointer.position, direction, 5f);
+            if (raycast.point != null && raycast.collider.tag == "environment")
+            {
+                Vector2 inDirection = Vector2.Reflect(direction, raycast.normal);
+                lineRenderer.SetPosition(0, raySpawnPointer.position);
+                lineRenderer.SetPosition(1, raycast.point);
+                lineRenderer.SetPosition(2, inDirection);
+            }
+            else
+            {
+                lineRenderer.SetPosition(0, raySpawnPointer.position);
+                lineRenderer.SetPosition(1, raycast.point);
+                lineRenderer.SetPosition(2, raycast.point);
+            }
             lineRenderer.enabled = true;
             setEnded = true;
-
         }
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && setEnded)
         {
             lineRenderer.enabled = false;
-            rb.AddForce(direction * 5000f);
-            velocity = rb.velocity;
-            setEnded = false;
-            touchActive = false;
-        }
-        if (alternate)
-        {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && !touchActive)
-            {
-                slow = true;
-                alternate = false;
-            }
-        }
-        else
-        {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && !touchActive)
-            {
-                slow = false;
-                Touch touch = Input.GetTouch(0);
-                Vector2 touchPos = Camera.FindObjectOfType<Camera>().ScreenToWorldPoint(touch.position);
-                rb.AddForce((touchPos - new Vector2(transform.position.x, transform.position.y)).normalized * 20000f);
-                alternate = true;
-            }
-
+            anim.Play("Base.JumpStart");
+            alternateAnim = true;
+            anim.Update(Time.smoothDeltaTime);
+            anim.Update(Time.smoothDeltaTime);
         }
 
-        if (rb.velocity.magnitude < 0.1f)
+        if (alternateAnim)
         {
-            obstacleField = false;
+            if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.1)
+            {
+                rb.AddForce(direction * 5000f);
+                setEnded = false;
+                touchActive = false;
+            }
+            if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 2)
+            {
+                anim.Play("Base.JumpAnimation");
+                anim.SetBool(rolledHashCode, true);
+                velocity = rb.velocity;
+                alternateAnim = false;
+                collider2D.radius = 1.8f;
+            }
         }
-        else if (rb.velocity.sqrMagnitude > 950)
+
+        if (Timer.hasEnded)
         {
-            float brakeSpeed = rb.velocity.sqrMagnitude - 950;  // calculate the speed decrease
+            anim.Play("Base.tuckStanding");
+            collider2D.radius = 3.77f;
+        }
+
+        //Power up
+        if (Input.touchCount > 0 && !touchActive)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                newPowerTouch = true;
+                touchTime = Time.time;
+                Debug.Log("touchTime=" + touchTime);
+                Debug.Log("Time=" + Time.time);
+                if (alternate && !Timer.hasEnded)
+                {
+                    slow = true;
+                    alternate = false;
+                }
+                else if (!Timer.hasEnded)
+                {
+                    slow = false;
+                    Vector2 touchPos = Camera.FindObjectOfType<Camera>().ScreenToWorldPoint(touch.position);
+                    rb.AddForce((touchPos - new Vector2(transform.position.x, transform.position.y)).normalized * force);
+                    alternate = true;
+                }
+            } 
+            else if (touch.phase == TouchPhase.Moved && touch.deltaPosition.magnitude < someValue)
+            {
+                Debug.Log("Here");
+                if (newPowerTouch == true && Time.time - touchTime >= 0.3f)
+                {
+                    Debug.Log("longpress detected");
+                    newPowerTouch = false;
+                    longPressDetected = true;
+                }
+            }
+        }
+
+        //Limit velocity
+        if (rb.velocity.sqrMagnitude > thresholdVelocity)
+        {
+            float brakeSpeed = rb.velocity.sqrMagnitude - thresholdVelocity;  // calculate the speed decrease
 
             Vector3 normalisedVelocity = rb.velocity.normalized;
             Vector3 brakeVelocity = normalisedVelocity * brakeSpeed;  // make the brake Vector3 value
@@ -115,50 +180,20 @@ public class CatBehaviour1 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Flipper" && rb.velocity.magnitude <= 650f)
-        {
-            rb.AddForce(new Vector2(0, 20), ForceMode2D.Impulse);
-        }
-
+ 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "obstacle")
-        {
-            obstacleField = true;
-            lineRenderer.enabled = true;
-        }
-        if (collision.gameObject.tag == "wallTopOuter")
-        {
-            if (wallTop)
-            {
-                v1 = rb.velocity.sqrMagnitude;
-                rb.AddForce(-rb.velocity.normalized * v1 * 50f);
-                wallTop = false;
-            }
-            else
-            {
-                if (v1 <= 1000f)
-                {
-                    rb.AddForce(rb.velocity.normalized * v1 * 40f);  
-                }
-                wallTop = true;
-            }
-        } 
+        
     }
 
     void FixedUpdate()
     {
-        if (obstacleField && rb.velocity.magnitude >= 0.1f)
-        {
-            rb.velocity = rb.velocity * 0.73f;
-            rb.angularVelocity = rb.angularVelocity * 0.73f;
-        }
-
         if (slow)
         {
             rb.velocity = rb.velocity * 0.95f;
         }
     }
+
 }

@@ -11,16 +11,18 @@ public class Timer : MonoBehaviour {
 
     public Rigidbody2D rb;
 
+    public static bool hasEnded;
+
     void Start () {
         TimerText = GetComponent<Text>();
-        time = 10f;
-        TimerText.text = "Time Left: " + Mathf.Round(time).ToString();
-        TimerText.alignment = TextAnchor.UpperLeft;
+        time = 30f;
+        TimerText.text = "Time Left: 30";
+        hasEnded = false;
     }
 
 	void Update()
     {
-        if (time > 0 && rb.velocity != rb.velocity * 0)
+        if (time > 0 && !CatBehaviour1.touchActive)
         {
             time -= Time.deltaTime;
             TimerText.text = "Time Left: " + Mathf.Round(time).ToString();
@@ -30,10 +32,12 @@ public class Timer : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (time <= 0.5)
+        if (time <= 0.5 && time >= -1)
         {
+            hasEnded = true;
             rb.velocity = rb.velocity * 0.96f;
             rb.angularVelocity = rb.angularVelocity * 0.96f;
+            rb.gravityScale = 0.3f;
         }
     }
 }

@@ -1,0 +1,428 @@
+fileFormatVersion: 2
+guid: 3c1aa846a9705aa40a2acda04424b541
+timeCreated: 1501756450
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Tuck- Standing Sprite sheet_0
+    21300002: Tuck- Standing Sprite sheet_1
+    21300004: Tuck- Standing Sprite sheet_2
+    21300006: Tuck- Standing Sprite sheet_3
+    21300008: Tuck- Standing Sprite sheet_4
+    21300010: Tuck- Standing Sprite sheet_5
+    21300012: Tuck- Standing Sprite sheet_6
+    21300014: Tuck- Standing Sprite sheet_7
+    21300016: Tuck- Standing Sprite sheet_8
+    21300018: Tuck- Standing Sprite sheet_9
+    21300020: Tuck- Standing Sprite sheet_10
+    21300022: Tuck- Standing Sprite sheet_11
+    21300024: Tuck- Standing Sprite sheet_12
+    21300026: Tuck- Standing Sprite sheet_13
+    21300028: Tuck- Standing Sprite sheet_14
+    21300030: Tuck- Standing Sprite sheet_15
+    21300032: Tuck- Standing Sprite sheet_16
+    21300034: Tuck- Standing Sprite sheet_17
+    21300036: Tuck- Standing Sprite sheet_18
+    21300038: Tuck- Standing Sprite sheet_19
+    21300040: Tuck- Standing Sprite sheet_20
+    21300042: Tuck- Standing Sprite sheet_21
+    21300044: Tuck- Standing Sprite sheet_22
+    21300046: Tuck- Standing Sprite sheet_23
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: 47
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 3050
+        width: 408
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 3050
+        width: 411
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_2
+      rect:
+        serializedVersion: 2
+        x: 2119
+        y: 3071
+        width: 297
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 3023
+        y: 3074
+        width: 290
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 3934
+        y: 3042
+        width: 293
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_5
+      rect:
+        serializedVersion: 2
+        x: 4824
+        y: 2997
+        width: 290
+        height: 517
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_6
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 2006
+        width: 332
+        height: 641
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 1935
+        width: 345
+        height: 719
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2134
+        y: 1874
+        width: 274
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_9
+      rect:
+        serializedVersion: 2
+        x: 2991
+        y: 1874
+        width: 301
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_10
+      rect:
+        serializedVersion: 2
+        x: 3867
+        y: 1842
+        width: 313
+        height: 815
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_11
+      rect:
+        serializedVersion: 2
+        x: 4835
+        y: 1845
+        width: 258
+        height: 775
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_12
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1251
+        width: 412
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 1249
+        width: 411
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2087
+        y: 1273
+        width: 295
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_15
+      rect:
+        serializedVersion: 2
+        x: 2989
+        y: 1273
+        width: 290
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_16
+      rect:
+        serializedVersion: 2
+        x: 3888
+        y: 1241
+        width: 292
+        height: 438
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_17
+      rect:
+        serializedVersion: 2
+        x: 4787
+        y: 1199
+        width: 293
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_18
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 207
+        width: 334
+        height: 641
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 133
+        width: 346
+        height: 723
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_20
+      rect:
+        serializedVersion: 2
+        x: 2095
+        y: 73
+        width: 274
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_21
+      rect:
+        serializedVersion: 2
+        x: 3010
+        y: 75
+        width: 300
+        height: 783
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_22
+      rect:
+        serializedVersion: 2
+        x: 3922
+        y: 41
+        width: 311
+        height: 817
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tuck- Standing Sprite sheet_23
+      rect:
+        serializedVersion: 2
+        x: 4808
+        y: 44
+        width: 258
+        height: 777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
