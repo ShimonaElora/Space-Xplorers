@@ -22,9 +22,12 @@ public class CatBehaviour1 : MonoBehaviour
     private float powerUpTime;
 
     //Force and velocity controls
-    private float force = 20000f;
+    private float force = 9000f;
     private float thresholdVelocity = 950f;
     private Vector2 velocity;
+
+    //Rotation controls
+    private Quaternion initialRotation;
 
     //Power Up controls
     private bool newPowerTouch;
@@ -64,6 +67,7 @@ public class CatBehaviour1 : MonoBehaviour
         anim = GetComponent<Animator>();
         collider2D = GetComponent<CircleCollider2D>();
         collider2D.sharedMaterial.bounciness = 1;
+        initialRotation = rb.transform.rotation;
         
     }
 
@@ -118,6 +122,7 @@ public class CatBehaviour1 : MonoBehaviour
             if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 2)
             {
                 anim.Play("Base.JumpAnimation");
+                rb.AddTorque(-100f);
                 anim.SetBool(rolledHashCode, true);
                 velocity = rb.velocity;
                 alternateAnim = false;
@@ -127,6 +132,7 @@ public class CatBehaviour1 : MonoBehaviour
 
         if (Timer.hasEnded)
         {
+            rb.transform.rotation = initialRotation;
             anim.Play("Base.tuckStanding");
             collider2D.radius = 3.77f;
         }
