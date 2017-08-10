@@ -8,10 +8,12 @@ public class WallHorizontal : MonoBehaviour
     public Transform spawnPoint;
     public GameObject wall;
 
+    public GameObject marker;
+
     // Use this for initialization
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class WallHorizontal : MonoBehaviour
         if (collision.gameObject.tag == "wallRight")
         {
             GameObject wallClone = (GameObject)Instantiate(wall, spawnPoint.position, wall.transform.rotation);
+            Destroy(marker);
         }
     }
 }

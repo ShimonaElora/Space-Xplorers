@@ -87,9 +87,10 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CatBehaviour.cs" />
     <Compile Include="Assets\Scripts\CatBehaviour1.cs" />
-    <Compile Include="Assets\Scripts\CatBehaviour2.cs" />
     <Compile Include="Assets\Scripts\DestroyerScript.cs" />
+    <Compile Include="Assets\Scripts\EnemyFatScript.cs" />
     <Compile Include="Assets\Scripts\Obstacle.cs" />
+    <Compile Include="Assets\Scripts\PowerUp.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\WallHorizontal.cs" />
     <Compile Include="Assets\Scripts\rotateCenter.cs" />

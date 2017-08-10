@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/catAction2.unity
     guid: 68ea264f22221a54f8fbd0297be7c3b3
+  - enabled: 0
+    path: Assets/Scenes/Test1.unity
+    guid: c0bb6062508ab6549b3f49b73ac54b25

@@ -22,7 +22,7 @@ public class CatBehaviour1 : MonoBehaviour
     private float powerUpTime;
 
     //Force and velocity controls
-    private float force = 9000f;
+    private float force = 10000f;
     private float thresholdVelocity = 950f;
     private Vector2 velocity;
 
@@ -33,7 +33,6 @@ public class CatBehaviour1 : MonoBehaviour
     private bool newPowerTouch;
     private float touchTime;
     private bool longPressDetected;
-    private float someValue = 0.5f;
 
     //Reference to rigidbody cat
     private Rigidbody2D rb;
@@ -47,7 +46,7 @@ public class CatBehaviour1 : MonoBehaviour
     private bool alternateAnim = false;
 
     //Collider
-    private CircleCollider2D collider2D;
+    public static CircleCollider2D collider2DCat;
 
     void Start()
     {
@@ -65,9 +64,10 @@ public class CatBehaviour1 : MonoBehaviour
         newPowerTouch = false;
         longPressDetected = false;
         anim = GetComponent<Animator>();
-        collider2D = GetComponent<CircleCollider2D>();
-        collider2D.sharedMaterial.bounciness = 1;
+        collider2DCat = GetComponent<CircleCollider2D>();
+        collider2DCat.sharedMaterial.bounciness = 1;
         initialRotation = rb.transform.rotation;
+        rb.gravityScale = 0.059f;
         
     }
 
@@ -115,18 +115,17 @@ public class CatBehaviour1 : MonoBehaviour
         {
             if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.1)
             {
-                rb.AddForce(direction * 5000f);
+                rb.AddForce(direction * 2500f);
                 setEnded = false;
                 touchActive = false;
             }
-            if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 2)
+            if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.1)
             {
                 anim.Play("Base.JumpAnimation");
-                rb.AddTorque(-100f);
-                anim.SetBool(rolledHashCode, true);
+                rb.AddTorque(-10f);
                 velocity = rb.velocity;
                 alternateAnim = false;
-                collider2D.radius = 1.8f;
+                collider2DCat.radius = 1.8f;
             }
         }
 
@@ -134,19 +133,31 @@ public class CatBehaviour1 : MonoBehaviour
         {
             rb.transform.rotation = initialRotation;
             anim.Play("Base.tuckStanding");
-            collider2D.radius = 3.77f;
+            collider2DCat.radius = 3.77f;
         }
 
         //Power up
-        if (Input.touchCount > 0 && !touchActive)
+        if (Input.touchCount == 1 && !touchActive)
         {
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
-                newPowerTouch = true;
                 touchTime = Time.time;
-                Debug.Log("touchTime=" + touchTime);
-                Debug.Log("Time=" + Time.time);
+            }
+            else if (touch.phase == TouchPhase.Stationary && Timer.time > 5f && !PowerUp.active)
+            {
+                newPowerTouch = true;
+                if (Time.time - touchTime > 1)
+                {
+                    Handheld.Vibrate();
+                    PowerUp.active = true;
+                    Timer.isPausedStarted = true;
+                }
+            }
+            else if (touch.phase == TouchPhase.Ended && !PowerUp.active)
+            {
+                newPowerTouch = false;
+                //Debug.Log("Ended" + Time.time);
                 if (alternate && !Timer.hasEnded)
                 {
                     slow = true;
@@ -158,16 +169,6 @@ public class CatBehaviour1 : MonoBehaviour
                     Vector2 touchPos = Camera.FindObjectOfType<Camera>().ScreenToWorldPoint(touch.position);
                     rb.AddForce((touchPos - new Vector2(transform.position.x, transform.position.y)).normalized * force);
                     alternate = true;
-                }
-            } 
-            else if (touch.phase == TouchPhase.Moved && touch.deltaPosition.magnitude < someValue)
-            {
-                Debug.Log("Here");
-                if (newPowerTouch == true && Time.time - touchTime >= 0.3f)
-                {
-                    Debug.Log("longpress detected");
-                    newPowerTouch = false;
-                    longPressDetected = true;
                 }
             }
         }

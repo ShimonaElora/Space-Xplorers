@@ -2,83 +2,179 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatBehaviour: MonoBehaviour {
-
-    public int speed;
-    public Transform arrowPointer;
+public class CatBehaviour : MonoBehaviour
+{
+    //For the directional ray
+    public Transform raySpawnPointer;
     public Transform hitPoint;
-    LineRenderer lineRenderer;
-    bool touchActive;
+    private LineRenderer lineRenderer;
+    private Vector2 direction;
+    private RaycastHit2D raycast;
+
+    //touch controls
+    public static bool touchActive;
+    private bool setEnded;
+    private bool alternate;
+    private bool slow;
+
+    //Time controls
     public float time;
-    bool obstacleField;
-    bool setEnded;
-    Vector2 direction;
-    Vector2 offset;
-    Vector2 endPoint;
+    private float powerUpTime;
 
-    Vector2 velocity;
-    RaycastHit2D raycast;
+    //Force and velocity controls
+    private float force = 10000f;
+    private float thresholdVelocity = 950f;
+    private Vector2 velocity;
 
-    Rigidbody2D rb;
-	
-	void Start () { 
+    //Rotation controls
+    private Quaternion initialRotation;
+
+    //Power Up controls
+    private bool newPowerTouch;
+    private float touchTime;
+    private bool longPressDetected;
+
+    //Reference to rigidbody cat
+    private Rigidbody2D rb;
+
+    //Animators
+    private Animator anim;
+    private int jumpHashCode = Animator.StringToHash("jumped");
+    private int rolledHashCode = Animator.StringToHash("isRolled");
+    private int jumpStartHashCode = Animator.StringToHash("jumpStart");
+    private int jumpAnimation1HashCode = Animator.StringToHash("Base Layer.Jump Animation1");
+    private bool alternateAnim = false;
+
+    //Collider
+    public static CircleCollider2D collider2DCat;
+
+    void Start()
+    {
+        alternate = true;
         rb = GetComponent<Rigidbody2D>();
         lineRenderer = GetComponentInChildren<LineRenderer>();
         lineRenderer.enabled = false;
         touchActive = true;
         time = 10f;
-        obstacleField = false;
         setEnded = false;
-        direction = hitPoint.position - transform.position;
-        raycast = Physics2D.Raycast(arrowPointer.position, direction);
-        offset = new Vector2(hitPoint.position.x, hitPoint.position.y) - raycast.point;
+        direction = hitPoint.position - raySpawnPointer.position;
+        raycast = Physics2D.Raycast(raySpawnPointer.position, direction, 5f);
+        slow = false;
+        powerUpTime = 10f;
+        newPowerTouch = false;
+        longPressDetected = false;
+        anim = GetComponent<Animator>();
+        collider2DCat = GetComponent<CircleCollider2D>();
+        collider2DCat.sharedMaterial.bounciness = 1;
+        initialRotation = rb.transform.rotation;
+        rb.gravityScale = 0.059f;
+
     }
-	
-	void Update () {
-        direction = hitPoint.position - transform.position;
-        raycast = Physics2D.Raycast(arrowPointer.position, direction, 5f);
-        if (raycast.point != null && raycast.collider.tag == "environment")
+
+    void Update()
+    {
+
+        //LineRenderer set up
+        direction = hitPoint.position - raySpawnPointer.position;
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && touchActive)
         {
-            Vector2 inDirection = Vector2.Reflect(direction, raycast.normal);
-            lineRenderer.SetPosition(0, arrowPointer.position);
-            lineRenderer.SetPosition(1, raycast.point);
-            lineRenderer.SetPosition(2, inDirection);
-        }
-        else
-        {
-            lineRenderer.SetPosition(0, arrowPointer.position);
-            lineRenderer.SetPosition(1, raycast.point);
-            lineRenderer.SetPosition(2, raycast.point);
-        }
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && touchActive){
             Touch touch = Input.GetTouch(0);
-            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-            transform.Rotate(Vector3.back, touchDeltaPosition.x * 0.5f, Space.Self);
+            Vector2 touchDeltaPosition = touch.deltaPosition;
+            raySpawnPointer.RotateAround(transform.position, Vector3.back, touchDeltaPosition.x * 0.5f);
+            hitPoint.RotateAround(transform.position, Vector3.back, touchDeltaPosition.x * 0.5f);
+            //transform.Rotate(Vector3.back, touchDeltaPosition.x * 0.5f, Space.Self);
+            direction = hitPoint.position - raySpawnPointer.position;
+            raycast = Physics2D.Raycast(raySpawnPointer.position, direction, 5f);
+            if (raycast.point != null && raycast.collider.tag == "environment")
+            {
+                Vector2 inDirection = Vector2.Reflect(direction, raycast.normal);
+                lineRenderer.SetPosition(0, raySpawnPointer.position);
+                lineRenderer.SetPosition(1, raycast.point);
+                lineRenderer.SetPosition(2, inDirection);
+            }
+            else
+            {
+                lineRenderer.SetPosition(0, raySpawnPointer.position);
+                lineRenderer.SetPosition(1, raycast.point);
+                lineRenderer.SetPosition(2, raycast.point);
+            }
             lineRenderer.enabled = true;
             setEnded = true;
-            
         }
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && setEnded)
         {
-            lineRenderer.enabled = false;
-            rb.AddForce(direction * 5000f);
-            velocity = rb.velocity;
+            rb.AddForce(direction * 2500f);
             setEnded = false;
             touchActive = false;
+            lineRenderer.enabled = false;
         }
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && !touchActive) 
+
+        /*if (alternateAnim)
+        {
+            if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.1)
+            {
+                
+            }
+            if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.1)
+            {
+                anim.Play("Base.JumpAnimation");
+                rb.AddTorque(-10f);
+                velocity = rb.velocity;
+                alternateAnim = false;
+                collider2DCat.radius = 1.8f;
+            }
+        }
+
+        if (Timer.hasEnded)
+        {
+            rb.transform.rotation = initialRotation;
+            anim.Play("Base.tuckStanding");
+            collider2DCat.radius = 3.77f;
+        }*/
+
+        //Power up
+        if (Input.touchCount == 1 && !touchActive)
         {
             Touch touch = Input.GetTouch(0);
-            Vector2 touchPos = Camera.FindObjectOfType<Camera>().ScreenToWorldPoint(touch.position);
-            rb.velocity = Vector2.zero;
-            rb.AddForce((touchPos - new Vector2(transform.position.x, transform.position.y)).normalized * 20000f);
+            if (touch.phase == TouchPhase.Began)
+            {
+                touchTime = Time.time;
+            }
+            else if (touch.phase == TouchPhase.Stationary && Timer.time > 5f)
+            {
+                /*newPowerTouch = true;
+                if (Time.time - touchTime > 1)
+                {
+                    Handheld.Vibrate();
+                    PowerUp.active = true;
+                    Timer.isPausedStarted = true;
+                    alternate = !alternate;
+                }*/
+            }
+            else if (touch.phase == TouchPhase.Ended && !PowerUp.active)
+            {
+                newPowerTouch = false;
+                //Debug.Log("Ended" + Time.time);
+                if (alternate && !Timer.hasEnded)
+                {
+                    slow = true;
+                    alternate = false;
+                }
+                else if (!Timer.hasEnded)
+                {
+                    slow = false;
+                    Vector2 touchPos = Camera.FindObjectOfType<Camera>().ScreenToWorldPoint(touch.position);
+                    rb.AddForce((touchPos - new Vector2(transform.position.x, transform.position.y)).normalized * force);
+                    alternate = true;
+                }
+            }
         }
-        if (rb.velocity.magnitude < 0.1f)
+
+        //Limit velocity
+        if (rb.velocity.sqrMagnitude > thresholdVelocity)
         {
-            obstacleField = false;
-        } else if (rb.velocity.sqrMagnitude > 950)
-        {
-            float brakeSpeed = rb.velocity.sqrMagnitude - 950;  // calculate the speed decrease
+            float brakeSpeed = rb.velocity.sqrMagnitude - thresholdVelocity;  // calculate the speed decrease
 
             Vector3 normalisedVelocity = rb.velocity.normalized;
             Vector3 brakeVelocity = normalisedVelocity * brakeSpeed;  // make the brake Vector3 value
@@ -89,28 +185,20 @@ public class CatBehaviour: MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Flipper" && rb.velocity.magnitude <= 650f)
-        {
-            rb.AddForce(new Vector2(0, 20), ForceMode2D.Impulse);
-        }
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "obstacle")
-        {
-            obstacleField = true;
-            lineRenderer.enabled = true;
-        }
+
     }
 
     void FixedUpdate()
     {
-        if (obstacleField && rb.velocity.magnitude >= 0.1f )
+        if (slow)
         {
-            rb.velocity = rb.velocity * 0.73f;
-            rb.angularVelocity = rb.angularVelocity * 0.73f;
-        } 
+            rb.velocity = rb.velocity * 0.95f;
+        }
     }
+
 }
