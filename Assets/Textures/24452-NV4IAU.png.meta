@@ -1,0 +1,372 @@
+fileFormatVersion: 2
+guid: d29bd2951a4b0e14fb0a79ad0f77d542
+timeCreated: 1502503165
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 24452-NV4IAU_0
+    21300002: 24452-NV4IAU_1
+    21300004: 24452-NV4IAU_2
+    21300006: 24452-NV4IAU_3
+    21300008: 24452-NV4IAU_4
+    21300010: 24452-NV4IAU_5
+    21300012: 24452-NV4IAU_6
+    21300014: 24452-NV4IAU_7
+    21300016: 24452-NV4IAU_8
+    21300018: 24452-NV4IAU_9
+    21300020: 24452-NV4IAU_10
+    21300022: 24452-NV4IAU_11
+    21300024: 24452-NV4IAU_12
+    21300026: 24452-NV4IAU_13
+    21300028: 24452-NV4IAU_14
+    21300030: 24452-NV4IAU_15
+    21300032: 24452-NV4IAU_16
+    21300034: 24452-NV4IAU_17
+    21300036: 24452-NV4IAU_18
+    21300038: 24452-NV4IAU_19
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 24452-NV4IAU_0
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1364
+        width: 311
+        height: 680
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_1
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1364
+        width: 269
+        height: 1043
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_2
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 1364
+        width: 500
+        height: 799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_3
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 1364
+        width: 495
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1364
+        width: 435
+        height: 1003
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_5
+      rect:
+        serializedVersion: 2
+        x: 2523
+        y: 1364
+        width: 475
+        height: 797
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 992
+        width: 528
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_7
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 992
+        width: 466
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_8
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 992
+        width: 651
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_9
+      rect:
+        serializedVersion: 2
+        x: 1850
+        y: 992
+        width: 484
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_10
+      rect:
+        serializedVersion: 2
+        x: 2445
+        y: 992
+        width: 489
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_11
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 430
+        width: 199
+        height: 467
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_12
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 430
+        width: 246
+        height: 508
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_13
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 428
+        width: 275
+        height: 505
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_14
+      rect:
+        serializedVersion: 2
+        x: 1889
+        y: 430
+        width: 240
+        height: 481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_15
+      rect:
+        serializedVersion: 2
+        x: 2327
+        y: 0
+        width: 600
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_16
+      rect:
+        serializedVersion: 2
+        x: 2488
+        y: 430
+        width: 234
+        height: 502
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_17
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 0
+        width: 883
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_18
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 0
+        width: 558
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 24452-NV4IAU_19
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 0
+        width: 592
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -76,30 +76,13 @@ public class CatBehaviour1 : MonoBehaviour
 
         //LineRenderer set up
         direction = hitPoint.position - raySpawnPointer.position;
+        Touch touch;
+        Vector2 touchPos;
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && touchActive)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && touchActive)
         {
-            Touch touch = Input.GetTouch(0);
-            Vector2 touchDeltaPosition = touch.deltaPosition;
-            raySpawnPointer.RotateAround(transform.position, Vector3.back, touchDeltaPosition.x * 0.5f);
-            hitPoint.RotateAround(transform.position, Vector3.back, touchDeltaPosition.x * 0.5f);
-            //transform.Rotate(Vector3.back, touchDeltaPosition.x * 0.5f, Space.Self);
-            direction = hitPoint.position - raySpawnPointer.position;
-            raycast = Physics2D.Raycast(raySpawnPointer.position, direction, 5f);
-            if (raycast.point != null && raycast.collider.tag == "environment")
-            {
-                Vector2 inDirection = Vector2.Reflect(direction, raycast.normal);
-                lineRenderer.SetPosition(0, raySpawnPointer.position);
-                lineRenderer.SetPosition(1, raycast.point);
-                lineRenderer.SetPosition(2, inDirection);
-            }
-            else
-            {
-                lineRenderer.SetPosition(0, raySpawnPointer.position);
-                lineRenderer.SetPosition(1, raycast.point);
-                lineRenderer.SetPosition(2, raycast.point);
-            }
-            lineRenderer.enabled = true;
+            touch = Input.GetTouch(0);
+            touchPos = Camera.main.ScreenToWorldPoint(touch.position);
             setEnded = true;
         }
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && setEnded)
@@ -115,7 +98,7 @@ public class CatBehaviour1 : MonoBehaviour
         {
             if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.1)
             {
-                rb.AddForce(direction * 2500f);
+                rb.AddForce((touchPos - new Vector2(transform.position.x, transform.position.y)).normalized * 2500f);
                 setEnded = false;
                 touchActive = false;
             }
@@ -139,7 +122,7 @@ public class CatBehaviour1 : MonoBehaviour
         //Power up
         if (Input.touchCount == 1 && !touchActive)
         {
-            Touch touch = Input.GetTouch(0);
+            touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
                 touchTime = Time.time;
@@ -154,7 +137,7 @@ public class CatBehaviour1 : MonoBehaviour
                     Timer.isPausedStarted = true;
                 }
             }
-            else if (touch.phase == TouchPhase.Ended && !PowerUp.active)
+            else if (touch.phase == TouchPhase.Ended && !PowerUp.active && Timer.time > 3f)
             {
                 newPowerTouch = false;
                 //Debug.Log("Ended" + Time.time);
@@ -166,7 +149,7 @@ public class CatBehaviour1 : MonoBehaviour
                 else if (!Timer.hasEnded)
                 {
                     slow = false;
-                    Vector2 touchPos = Camera.FindObjectOfType<Camera>().ScreenToWorldPoint(touch.position);
+                    touchPos = Camera.main.ScreenToWorldPoint(touch.position);
                     rb.AddForce((touchPos - new Vector2(transform.position.x, transform.position.y)).normalized * force);
                     alternate = true;
                 }
@@ -199,7 +182,7 @@ public class CatBehaviour1 : MonoBehaviour
     {
         if (slow)
         {
-            rb.velocity = rb.velocity * 0.95f;
+            rb.velocity = rb.velocity * 0.9f;
         }
     }
 

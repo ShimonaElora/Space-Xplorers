@@ -44,7 +44,7 @@ public class Timer : MonoBehaviour {
             hasEnded = true;
             rb.velocity = rb.velocity * 0.96f;
             rb.angularVelocity = rb.angularVelocity * 0.96f;
-            rb.gravityScale = 0.3f;
+            rb.gravityScale = 0.5f;
             CatBehaviour1.collider2DCat.sharedMaterial.bounciness = 0;
         }
     }

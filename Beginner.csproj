@@ -84,13 +84,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BackgroundTreeScript.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CatBehaviour.cs" />
     <Compile Include="Assets\Scripts\CatBehaviour1.cs" />
     <Compile Include="Assets\Scripts\DestroyerScript.cs" />
     <Compile Include="Assets\Scripts\EnemyFatScript.cs" />
+    <Compile Include="Assets\Scripts\FireFlyPoints.cs" />
+    <Compile Include="Assets\Scripts\FireFlyRespawn.cs" />
+    <Compile Include="Assets\Scripts\FirflyScript.cs" />
+    <Compile Include="Assets\Scripts\ForegroundTreeScript.cs" />
     <Compile Include="Assets\Scripts\Obstacle.cs" />
     <Compile Include="Assets\Scripts\PowerUp.cs" />
+    <Compile Include="Assets\Scripts\StartButtonScript.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\WallHorizontal.cs" />
     <Compile Include="Assets\Scripts\rotateCenter.cs" />
