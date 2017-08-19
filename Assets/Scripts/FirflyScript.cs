@@ -53,6 +53,10 @@ public class FirflyScript : MonoBehaviour {
             decreaseRange = true;
             FireFlyPoints.fireflyPoints++;
         }
+        if (collision.GetComponent<Collider2D>().gameObject.name == "wallLeft")
+        {
+            Destroy(gameObjectFireFly);
+        }
     }
 
 }

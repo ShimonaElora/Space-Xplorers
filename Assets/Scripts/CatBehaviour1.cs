@@ -5,14 +5,12 @@ using UnityEngine;
 public class CatBehaviour1 : MonoBehaviour
 {
     //For the directional ray
-    public Transform raySpawnPointer;
-    public Transform hitPoint;
     private LineRenderer lineRenderer;
     private Vector2 direction;
     private RaycastHit2D raycast;
 
     //touch controls
-    public static bool touchActive;
+    public static bool touchActive = true;
     private bool setEnded;
     private bool alternate;
     private bool slow;
@@ -22,7 +20,7 @@ public class CatBehaviour1 : MonoBehaviour
     private float powerUpTime;
 
     //Force and velocity controls
-    private float force = 10000f;
+    private float force = 8000f;
     private float thresholdVelocity = 950f;
     private Vector2 velocity;
 
@@ -45,6 +43,9 @@ public class CatBehaviour1 : MonoBehaviour
     private int jumpAnimation1HashCode = Animator.StringToHash("Base Layer.Jump Animation1");
     private bool alternateAnim = false;
 
+    Touch touch;
+    Vector2 touchPos;
+
     //Collider
     public static CircleCollider2D collider2DCat;
 
@@ -52,13 +53,9 @@ public class CatBehaviour1 : MonoBehaviour
     {
         alternate = true;
         rb = GetComponent<Rigidbody2D>();
-        lineRenderer = GetComponentInChildren<LineRenderer>();
-        lineRenderer.enabled = false;
         touchActive = true;
         time = 10f;
         setEnded = false;
-        direction = hitPoint.position - raySpawnPointer.position;
-        raycast = Physics2D.Raycast(raySpawnPointer.position, direction, 5f);
         slow = false;
         powerUpTime = 10f;
         newPowerTouch = false;
@@ -74,36 +71,27 @@ public class CatBehaviour1 : MonoBehaviour
     void Update()
     {
 
-        //LineRenderer set up
-        direction = hitPoint.position - raySpawnPointer.position;
-        Touch touch;
-        Vector2 touchPos;
-
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && touchActive)
         {
             touch = Input.GetTouch(0);
             touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-            setEnded = true;
-        }
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended && setEnded)
-        {
-            lineRenderer.enabled = false;
             anim.Play("Base.JumpStart");
             alternateAnim = true;
             anim.Update(Time.smoothDeltaTime);
             anim.Update(Time.smoothDeltaTime);
+            touchActive = false;
         }
 
-        if (alternateAnim)
+        if (alternateAnim && !touchActive)
         {
-            if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.1)
+            if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.2)
             {
-                rb.AddForce((touchPos - new Vector2(transform.position.x, transform.position.y)).normalized * 2500f);
-                setEnded = false;
-                touchActive = false;
+                Debug.Log("here");
+                rb.AddForce((touchPos - new Vector2(transform.position.x, transform.position.y)).normalized * 5000f);
             }
-            if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.1)
+            if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.2)
             {
+                Debug.Log("here");
                 anim.Play("Base.JumpAnimation");
                 rb.AddTorque(-10f);
                 velocity = rb.velocity;
@@ -114,6 +102,7 @@ public class CatBehaviour1 : MonoBehaviour
 
         if (Timer.hasEnded)
         {
+            Debug.Log("here");
             rb.transform.rotation = initialRotation;
             anim.Play("Base.tuckStanding");
             collider2DCat.radius = 3.77f;
@@ -122,6 +111,7 @@ public class CatBehaviour1 : MonoBehaviour
         //Power up
         if (Input.touchCount == 1 && !touchActive)
         {
+            Debug.Log("here");
             touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
@@ -159,6 +149,7 @@ public class CatBehaviour1 : MonoBehaviour
         //Limit velocity
         if (rb.velocity.sqrMagnitude > thresholdVelocity)
         {
+            Debug.Log("here");
             float brakeSpeed = rb.velocity.sqrMagnitude - thresholdVelocity;  // calculate the speed decrease
 
             Vector3 normalisedVelocity = rb.velocity.normalized;

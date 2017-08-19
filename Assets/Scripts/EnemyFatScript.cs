@@ -20,6 +20,7 @@ public class EnemyFatScript : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        Cat = GameObject.FindGameObjectWithTag("Player").transform;
         direction = Cat.transform.position - transform.position;
         rb = GetComponent<Rigidbody2D>();
         active = true;
@@ -31,9 +32,9 @@ public class EnemyFatScript : MonoBehaviour {
         {
             direction = Cat.transform.position - transform.position;
             raycast = Physics2D.Raycast(transform.position, direction, 4f);
-            Debug.DrawLine(transform.position, raycast.point, Color.blue);
-            if (raycast != null && raycast.collider.tag == "Player")
+            if (raycast.collider != null && raycast.collider.tag == "Player")
             {
+                Debug.DrawLine(transform.position, raycast.point, Color.blue);
                 Throw();
                 active = false;
             }
